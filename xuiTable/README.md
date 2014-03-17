@@ -1,5 +1,7 @@
 A lightweight table directive.
 
+Demo: [Plunker][0]
+
 Feature:
 
 1. Sorting
@@ -14,3 +16,5 @@ Dependency:
 
 
 
+
+[0]: http://plnkr.co/edit/NhD3y4?p=preview
