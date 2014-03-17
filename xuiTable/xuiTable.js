@@ -1,7 +1,7 @@
 /**
  * Created by linsz on 3/14/14.
  */
-angular.module('xui.table', ['ui.bootstrap'])
+angular.module('xui.table', ['ui.bootstrap.pagination'])
     .controller('xuiTableCtrl', ['$scope', '$attrs', 'orderByFilter', '$filter', '$parse',
         function($scope, $attrs, orderByFilter, $filter, $parse) {
 
