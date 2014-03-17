@@ -1,2 +1,4 @@
-Angular-XUI
-===========
+AngularJS-XUI
+=============
+
+My AngularJS UI Set

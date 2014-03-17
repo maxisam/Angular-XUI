@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html ng-app="plunker">
+
+<head>
+    <meta charset="utf-8" />
+    <title>AngularJS Plunker</title>
+    <script>
+        document.write('<base href="' + document.location + '" />');
+    </script>
+    <link rel="stylesheet" href="style.css" />
+    <link data-require="bootstrap-css" rel="stylesheet" href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.1.1/css/bootstrap.no-icons.min.css" />
+    <script data-require="angular.js@1.2.x" src="http://code.angularjs.org/1.2.13/angular.js" data-semver="1.2.13"></script>
+    <script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.10.0.js"></script>
+    <script src='xuiTable.js'></script>
+    <script src="app.js"></script>
+</head>
+
+<body ng-controller="MainCtrl">
+<p>Hello {{name}}!</p>
+<input type="text" ng-model='PageSize' placeholder='page size'>
+<input type="text" ng-model="search.id" placeholder='id'>
+<input type="text" ng-model="search.description" placeholder = 'description'>
+<table xui-table="test" table-headers="TableHeader" table-data="List" items-per-page='10' page-window='PageSize' table-pager='true' table-filter='searchfn(input)' table-filter-factor='search'>
+    <tbody>
+    <tr>
+        <td class="id" data-fileid="{{row.id}}">{{row.id}}</td>
+        <td class="name">{{row.name }}</td>
+        <td class="description">{{row.description}}</td>
+        <td class="field3">{{row.field3}}</td>
+        <td class="Action">
+            <button ng-click='$parent.$parent.open(row.id)'>test</button>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+
+</html>
