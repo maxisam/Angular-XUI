@@ -87,14 +87,12 @@ angular.module('xui.table', ['ui.bootstrap.pagination'])
                 templateUrl: 'xuiTable.html',
                 controller: 'xuiTableCtrl',
                 link: function(scope, elm, attrs, controller, transcludeFn) {
-                    if ( !! scope.tableDataFiltered.length) {
-                        var tbody = transcludeFn(scope, function(clone) {
-                            clone.children('tr').attr("ng-repeat", 'row in  pagedItems[Page.current-1]');
-                        });
-                        $compile(tbody)(scope, function(clone) {
-                            elm.addClass(attrs.xuiTable).append(clone);
-                        });
-                    }
+                    var tbody = transcludeFn(scope, function(clone) {
+                        clone.children('tr').attr("ng-repeat", 'row in  pagedItems[Page.current-1]');
+                    });
+                    $compile(tbody)(scope, function(clone) {
+                        elm.addClass(attrs.xuiTable).append(clone);
+                    });
                 }
             };
         }
