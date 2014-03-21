@@ -7,11 +7,10 @@ angular.module('xui.table', ['ui.bootstrap.pagination'])
 
             var attrs = ['tableHeaders', 'tableData', 'itemsPerPage', 'pageWindow', 'tableFilterFactor'];
             angular.forEach(attrs, function(val) {
-                var tmp = $parse($attrs[val]);
-                $scope[val] = tmp($scope.$parent);
-                $scope.$parent.$watch(tmp, function(newVal) {
-                    $scope[val] = tmp($scope.$parent);
-                });
+                $scope.$parent.$watch($parse($attrs[val]), function (newVal) {
+                    $scope[val] = newVal;
+                    that.search();
+                }, true);
             });
 
             $attrs.$observe('tablePager', function(val) {
