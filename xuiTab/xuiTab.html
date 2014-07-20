@@ -1,0 +1,17 @@
+<div class="menu-tabs-wrap ">
+    <ul class="nav nav-tabs">
+        <li class="hidden-xs" data-ng-repeat="tab in tabMenu" data-ng-class="{'active': IsActive(tab.URL)}">
+            <a data-ng-href="#/tab/{{tab.URL}}" title="{{tab.title}}" ng-bind="tab.title"></a>
+        </li>
+        <li class="dropdown active visible-xs">
+            <a class="dropdown-toggle">
+                {{CurrentTab.title}} <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+                <li data-ng-repeat="tab in tabMenu" data-ng-class="{'active': IsActive(tab)}">
+                    <a data-ng-href="#/tab/{{tab.URL}}" title="{{tab.title}}" ng-bind="tab.title"></a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</div>

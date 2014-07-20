@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html ng-app="plunker">
+
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>AngularJS Plunker</title>
+    <script>
+        document.write('<base href="' + document.location + '" />');
+    </script>
+    <link rel="stylesheet" href="style.css"/>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <script data-require="angular.js@1.2.x" src="http://code.angularjs.org/1.2.20/angular.js"
+            data-semver="1.2.20"></script>
+    <script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.11.0.js"></script>
+    <script src='../xuiTab.js'></script>
+    <script src="app.js"></script>
+</head>
+
+<body ng-controller="MainCtrl" class="">
+<p>Hello {{name}}!</p>
+
+<div data-xui-tab data-tab-menu="TabMenu" class="container-fluid"></div>
+
+</body>
+
+</html>
