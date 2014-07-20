@@ -12,9 +12,9 @@ Feature:
 
 Dependency:
 
-1. AngularJS UI Bootstrap pagination
+1. AngularJS UI Bootstrap pagination (v 0.10.0)
 
 
 
 
-[0]: http://plnkr.co/edit/NhD3y4?p=preview
+[0]: http://plnkr.co/edit/mVVSLl?p=preview

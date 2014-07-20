@@ -1,17 +1,16 @@
 /**
  * Created by linsz on 3/14/14.
  */
-angular.module('xui.table', ['ui.bootstrap'])
+angular.module('xui.table', ['ui.bootstrap.pagination'])
     .controller('xuiTableCtrl', ['$scope', '$attrs', 'orderByFilter', '$filter', '$parse',
         function($scope, $attrs, orderByFilter, $filter, $parse) {
 
             var attrs = ['tableHeaders', 'tableData', 'itemsPerPage', 'pageWindow', 'tableFilterFactor'];
             angular.forEach(attrs, function(val) {
-                var tmp = $parse($attrs[val]);
-                $scope[val] = tmp($scope.$parent);
-                $scope.$parent.$watch(tmp, function(newVal) {
-                    $scope[val] = tmp($scope.$parent);
-                });
+                $scope.$parent.$watch($parse($attrs[val]), function (newVal) {
+                    $scope[val] = newVal;
+                    that.search();
+                }, true);
             });
 
             $attrs.$observe('tablePager', function(val) {
@@ -87,14 +86,12 @@ angular.module('xui.table', ['ui.bootstrap'])
                 templateUrl: 'xuiTable.html',
                 controller: 'xuiTableCtrl',
                 link: function(scope, elm, attrs, controller, transcludeFn) {
-                    if ( !! scope.tableDataFiltered.length) {
-                        var tbody = transcludeFn(scope, function(clone) {
-                            clone.children('tr').attr("ng-repeat", 'row in  pagedItems[Page.current-1]');
-                        });
-                        $compile(tbody)(scope, function(clone) {
-                            elm.addClass(attrs.xuiTable).append(clone);
-                        });
-                    }
+                    var tbody = transcludeFn(scope, function(clone) {
+                        clone.children('tr').attr("ng-repeat", 'row in  pagedItems[Page.current-1]');
+                    });
+                    $compile(tbody)(scope, function(clone) {
+                        elm.addClass(attrs.xuiTable).append(clone);
+                    });
                 }
             };
         }
